@@ -36,7 +36,7 @@ const swaggerOptions = {
         },
       },
     },
-    servers: [{ url: "http://localhost:3000" }],
+    servers: [{ url: "https://notes-server-side-api.onrender.com/" }],
     security: [{ bearerAuth: [] }],
   },
   apis: ["./routes/*.js"],
