@@ -4,6 +4,7 @@ import {
   signup,
   login,
   signout,
+  getUsers,
 } from "../controller/user.controller.js";
 
 const router = express.Router();
@@ -144,5 +145,46 @@ router.post("/signout", signout);
  */
 
 router.patch("/userupdate/:id", userupdate);
+
+/**
+ * @swagger
+ * /api/user/all:
+ *   get:
+ *     summary: Retrieve all users
+ *     tags:
+ *       - Notes
+ *     description: Retrieve all notes created by the authenticated user
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: A list of the user's notes
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                    email:
+ *                 type: string
+ *                 example: "newuser@example.com"
+ *               password:
+ *                 type: string
+ *                 example: "newpassword123"
+ *               username:
+ *                 type: string
+ *                 example: "newUsername"
+ *               phone:
+ *                 type: string
+ *                 example: "+1234567890"
+ *               birthday_year:
+ *                 type: integer
+ *                 example: 1995
+ *       401:
+ *         description: Unauthorized - Token is missing or invalid
+ */
+
+router.get("/all", getUsers);
 
 export default router;

@@ -117,3 +117,18 @@ export const signout = (req, res, next) => {
     next(error);
   }
 };
+
+export const getUsers = async (req, res, next) => {
+  try {
+    const result = await db.query("select * from users");
+    const user = result.rows[0];
+
+    if (!user) {
+      res.json("user doesnt exist");
+      return;
+    }
+    res.json(user);
+  } catch (error) {
+    next(error);
+  }
+};
