@@ -4,6 +4,7 @@ import AuthRouter from "./routes/user.route.js";
 import NoteRouter from "./routes/note.route.js";
 import swaggerJsdoc from "swagger-jsdoc";
 import swaggerUi from "swagger-ui-express";
+import cors from "cors";
 
 const app = express();
 const port = 3000;
@@ -18,7 +19,7 @@ db.connect()
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json()); // for parsing application/json
-
+app.use(cors());
 const swaggerOptions = {
   definition: {
     openapi: "3.0.0",
