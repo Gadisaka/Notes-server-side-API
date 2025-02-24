@@ -155,4 +155,6 @@ router.get("/user", authenticateJWT, user);
 
 router.get("/isAutenticated/:id", authenticateJWT, isUserAutenticated);
 
+//check
+
 export default router;
